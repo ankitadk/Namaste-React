@@ -65,3 +65,27 @@ npx parcel build index.html
 npm run start => create dev build
 npm start => short cut to create dev build
 npm run build => create production build
+
+
+React syntax is very clumsy hence React developers created JSX 
+JSX is not a part of React.
+JSX and React are different.
+JSX has HTML like syntax and it is not HTML inside JS.
+In JSX, attributes are written using CamelCase.
+If JSX code occupies multiple lines then wrap the code in circular brackets.
+
+VS Code Extentions:
+Better Comments
+ESLint
+Bracket Pair Coloriser
+Prettier
+
+Babel transpiles JSX to React.createElement. React element is converted to an object and then this object is rendered onto the browser as an HTML element.
+
+React Component:
+A function that returns some piece of JSX or a React element is a functional component.
+
+Component Composition:
+Putting a component inside a component is known as a Component Composition.
+
+JSX takes care of injection attacks and cross site scripting since it is sanitizing the data.
