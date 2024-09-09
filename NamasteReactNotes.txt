@@ -1,0 +1,67 @@
+1. Initialise a git repo and push the code onto the git
+Reference: https://www.freecodecamp.org/news/git-push-local-branch-to-remote-how-to-publish-a-new-branch-in-git/
+git init
+git branch -m master main
+git add .
+git commit -m "episode-01"
+git remote add origin https://github.com/ankitadk/Namaste-React.git
+git remote -v
+git pull origin main
+git pull origin main --allow-unrelated-histories
+git push origin main
+git status
+
+2. Install npm
+npm init
+
+3. Install Parcel - it is a bundler
+npm install -D parcel => install parcel as a dev dependency since not needed on production
+npx parcel index.html
+Error
+deleted node_modules folder and reinstalled npm using below command
+npm install
+npx parcel index.html => creates a dev build and hosts our app onto the local server [link: http://localhost:1234]
+
+npm=> install a package
+npx=> execute a package
+
+Using cdn links is not a good way to use react library in our project.
+Bcoz network calls are very costly. 
+We can easily use it if it is already present in our node_modules and we do not wish to make any network calls.
+We need to change cdn links if we need to use the upgraded version of the library.
+
+4. Intsall react in our project
+npm install react
+npm i react-dom
+
+Parcel:
+-created a dev build
+-created a local server
+-it does HMR => hot module replacement since it uses File Watching Algorith (written in c++)
+-it does caching for faster builds
+-it does image optimization - most expensive work for a browser is loading images
+-in case of production build it does the file minification
+-bundling
+-file compression so that the size is reduced
+-consistent hashing
+-code splitting
+-differential bundling - to support older browsers
+-Error handling
+-HTTPs
+-Tree Shaking - removes unused code
+
+5. creating a production ready app using parcel
+npx parcel build index.html
+
+6. add browser compatibility in package.json file
+  "browserslist": [
+    "last 2 versions"
+  ]
+  
+7. add scripts to package.json to create a dev and prod build
+"start": "parcel index.html",
+"build": "parcel build index.html",
+
+npm run start => create dev build
+npm start => short cut to create dev build
+npm run build => create production build
