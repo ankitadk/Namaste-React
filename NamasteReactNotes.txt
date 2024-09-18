@@ -62,9 +62,9 @@ npx parcel build index.html
 "start": "parcel index.html",
 "build": "parcel build index.html",
 
-npm run start => create dev build
-npm start => short cut to create dev build
-npm run build => create production build
+npm run start => create dev build [npx parcel index.html]
+npm start => short cut to create dev build [npx parcel index.html]
+npm run build => create production build [npx parcel build index.html]
 
 
 React syntax is very clumsy hence React developers created JSX 
