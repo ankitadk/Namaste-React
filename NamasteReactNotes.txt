@@ -89,3 +89,30 @@ Component Composition:
 Putting a component inside a component is known as a Component Composition.
 
 JSX takes care of injection attacks and cross site scripting since it is sanitizing the data.
+
+episode 5: lets get hooked
+-create a proper folder structure.
+-create src folder in the root and move App.js inside it.
+-components folder will have all the components.
+
+Two types of exports and imports
+-Default Export/import
+-Named export/import
+
+Note: Keep ur component code upto 100-200 lines.
+
+-React Hooks
+Normal JS utility functions
+-useState()
+-useEffect()
+
+Note: Whenever a state variable changes React will find the difference between actual DOM and the virtual DOM and it re-renders the component.
+Note: React is fast because it is good at DOM manipulation.
+
+React Algorithm:
+React uses Reconciliation algorithm also known as React Fiber.
+Virtual DOM is a representation of actual DOM. It is a normal JavaScript object.
+If I filter my UI to show 3 cards from 7 cards.
+Algorithm compares the new object with the old one and then finds the div and updates the DOM.
+React Fiber Architecture
+Incremental Rendering => the ability to split rendering work into chunks and spread it out over multiple frames.
