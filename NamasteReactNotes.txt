@@ -116,3 +116,14 @@ If I filter my UI to show 3 cards from 7 cards.
 Algorithm compares the new object with the old one and then finds the div and updates the DOM.
 React Fiber Architecture
 Incremental Rendering => the ability to split rendering work into chunks and spread it out over multiple frames.
+
+Episode-06 => Exploring the World
+Monolith and Microservice architecture
+Single Responsibility Principle
+Separation of Concern
+In case of Microservice architecture, we can build different services using different tech stacks.
+
+Conditional Rendering
+-Rendering UI on basis of some conditions.
+
+Note: Whenever a state variable changes, React triggers a reconciliation cycle and re-renders a component.
