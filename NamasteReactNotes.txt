@@ -127,3 +127,25 @@ Conditional Rendering
 -Rendering UI on basis of some conditions.
 
 Note: Whenever a state variable changes, React triggers a reconciliation cycle and re-renders a component.
+
+Episode-07 => Finding the Path
+Install JavaScript library i.e. React Router DOM
+Command: npm i react-router-dom
+
+1. create a configuration using createBrowserRouter.
+2. Provide the routing configuration to the app using RouterProvider component.
+3. Create error component and log errors using useRouteError hook.
+3. Create routes
+4. Create children routes
+
+createBrowserRouter component creates a routing configuration for us.
+RouterProvider component is used to provide the routing configuration to our app.
+useRouteError hook can be used to give more info about the error.
+Outlet component is used to load a child component. Outlet is filled with a child component according to the path.
+
+Two types of routing in web apps:
+1. Client side routing: Components are already loaded. We are not fetching a new page every time we click on any link.
+Such apps also known as SPA coz app consists of a single page, just the components getting interchanged via client side routing.
+2. Server side : We need to make a server call to load a component.
+
+use useParams hook to extract and use the params from the url.
