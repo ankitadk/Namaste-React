@@ -149,3 +149,20 @@ Such apps also known as SPA coz app consists of a single page, just the componen
 2. Server side : We need to make a server call to load a component.
 
 use useParams hook to extract and use the params from the url.
+
+Episode-08 => Let's Get Classy
+
+React Life cycle is applicable only to Class based components and not the functional components.
+React is a Single Page Application and onclick of any link we are just changing the component.
+There are a lot of things we need to clear while leaving a page like resources used by setInterval() because in case of SPAs app is not reloaded which is why we need to use unmount to cleanup the memory.
+We can use return function in useEffect to clear the memory (while unmounting).
+return () => {
+ console.log("useEffect return");
+}
+
+Research about:
+constructor(props)
+super(props)
+why do we write async componentDidMount?
+why cant we write asynch in useEffect callback function : useEffect(async ()=>{}, [])?
+
