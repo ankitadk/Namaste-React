@@ -166,3 +166,24 @@ super(props)
 why do we write async componentDidMount?
 why cant we write asynch in useEffect callback function : useEffect(async ()=>{}, [])?
 
+Episode-09 => Optimizing our App
+Custom Hooks
+Single Responsiblity Principle: Every component should have a single responsibility.
+Advantages of SRP:
+1. Easy to test, debug and maintain the app.
+2. Reusable code.
+
+Write a custom hook to fetch the data of Restaurant Menu and use it in RestaurantMenu component.
+Create a separate file for every new hook.
+Create a hook in utils folder.
+Always start a hook name with the word use.
+
+Build a custom hook to find if user (Internet) is online or offline. Show a green dot if online and a red dot if offline.
+Also, display a msg on the screen informing that the User is Offline.
+
+App optimization:
+The main job of a bundler (Parcel) is to bundle our app.
+Bundling is the process of taking all the files and converting into a single file.
+Break ur app into small files coz otherwise one single file will take alot of time for loading the app resuting in poor UX.
+This process is known as Chunking OR Code Splitting OR Dynamic Import OR Lazy Loading OR Dynamic Bundling OR On-Demand Loading.
+Use lazy() package provided by react for lazy loading.
