@@ -187,3 +187,18 @@ Bundling is the process of taking all the files and converting into a single fil
 Break ur app into small files coz otherwise one single file will take alot of time for loading the app resuting in poor UX.
 This process is known as Chunking OR Code Splitting OR Dynamic Import OR Lazy Loading OR Dynamic Bundling OR On-Demand Loading.
 Use lazy() package provided by react for lazy loading.
+
+Episode-10 => Jo Dikhta Hai, Vo Bikta Hai
+
+Ways of writing css:
+1. create an index.css file.
+2. using SASS and SCSS [writing CSS with superpowers] => not a recommended way for big apps/projects
+3. use styled components
+4. Material UI
+5. Chakra UI
+6. Bootstrap
+7. Ant design
+8. Tailwind CSS
+
+Parcel uses postcssrc to read and understand Tailwind CSS.
+Tailwind CSS VS Code extension: Tailwind CSS IntelliSense.
