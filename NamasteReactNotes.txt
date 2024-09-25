@@ -1,3 +1,5 @@
+Sometimes you just have to pull yourself together.
+
 1. Initialise a git repo and push the code onto the git
 Reference: https://www.freecodecamp.org/news/git-push-local-branch-to-remote-how-to-publish-a-new-branch-in-git/
 git init
@@ -202,3 +204,32 @@ Ways of writing css:
 
 Parcel uses postcssrc to read and understand Tailwind CSS.
 Tailwind CSS VS Code extension: Tailwind CSS IntelliSense.
+
+Episode-11 => Data is the New Oil
+
+Higher Order Components
+Function which accept components as arguments  and returns a component is known as Higher Order Component. It enhances the component which is passed as an argument.
+
+Take RestaurantCard as an input component and return RestaurantCard with Promoted label as the output component.
+
+What are pure functions?
+Higher order functions are pure functions.
+Controlled and Uncontrolled components.
+Lifting the state up.
+Build an accordion for Restaurant Menu Page to display different types of Restaurant Menus.
+
+React Dev Tools:
+-Components => It represents the virtual dom of the page, [LHS=> UI Layer, RSH => Data Layer].
+-Profiler => We can record our actions/activities and check which component needs performance optimization.
+
+Lifting the state up => Passing the state to the parent component. Useful React feature to build the accordion.
+Controlled component [A component which is controlled by its parent component] => RestaurantCategory component is controlled by its parent component i.e. RestaurantMenu component.
+Uncontrolled component: Any component which has its own state is an Uncontrolled component.
+
+props drilling
+useContext: Powerful way to manage data. Data is placed at a global place and anyone can access it.
+We cannot use hooks in class based components.
+
+Redux is a state management library. It is an external library. It is not a part of react.
+Context can be used for medium sized application. Context is provided by react.
+Redux is used for large apps. It is scalable.

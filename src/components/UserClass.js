@@ -17,15 +17,15 @@ class UserClass extends React.Component {
       },
     };
 
-    console.log(this.props.name + " Child Constructor");
+    // console.log(this.props.name + " Child Constructor");
   }
 
   async componentDidMount() {
-    console.log(this.props.name + " Child Component Did Mount");
+    // console.log(this.props.name + " Child Component Did Mount");
 
     const data = await fetch("https://api.github.com/users/ankitadk");
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
 
     this.setState({
       useInfo: json,
@@ -33,11 +33,11 @@ class UserClass extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("Component Did Update");
+    // console.log("Component Did Update");
   }
 
   componentWillUnmount() {
-    console.log("Component Will Unmount");
+    // console.log("Component Will Unmount");
   }
 
   render() {
@@ -45,7 +45,7 @@ class UserClass extends React.Component {
     // const { count, count2 } = this.state;
     const { name, location, avatar_url } = this.state.useInfo;
 
-    console.log(this.props.name + " Child Render");
+    // console.log(this.props.name + " Child Render");
 
     return (
       <div className="user-card">
