@@ -44,7 +44,7 @@ const Body = () => {
     );
 
   const { loggedInUser, setUserName } = useContext(UserContext);
-  console.log(loggedInUser);
+  //   console.log(loggedInUser);
 
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />

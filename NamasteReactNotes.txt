@@ -233,3 +233,48 @@ We cannot use hooks in class based components.
 Redux is a state management library. It is an external library. It is not a part of react.
 Context can be used for medium sized application. Context is provided by react.
 Redux is used for large apps. It is scalable.
+
+Episode-12 => Let's Build Our Store
+React and Redux are different libraries.
+Other Data mgmt libraries similar to Redux: zustand
+Redux offers easy debugging. Redux is a JS library for predictable and maintainable global state management.
+Redux has two libraries:
+a. React-Redux (Official React bindings for Redux): it is a bridge between React and Redux.
+b. Redux Toolkit: Standard and newer way of writing Redux now. The Redux Toolkit package is intended to be the standard way to write Redux logic.
+
+In our Food App we will be using Redux Toolkit along with React-Redux. We will not be using traditional/vanilla Redux.
+What is the difference between traditional/vanilla Redux and Redux toolkit?
+
+We will be building a cart page and cart flow feature and in order to store all the cart data/information we will use Redux store.
+
+Redux is a big JS Object kept at a global central place.
+In order not to make it clumsy, we divide this data into smaller slices. Also to keep similar data separate we make logical separation which is known as slices. ex: themedataslice, cartdataslice, userdataslice.
+When we click on an ADD button, it dispatches an Action(A) which calls a Reducer function which updates the data slice of our Redux store.
+Selector is used to read the data from Redux store and it modifies the React component accordingly. This phenomenon is known as subscribing to the store. Header component has subscibed to the Redux store using a selector.
+
+Redux Toolkit:
+1. Install Redux libraries => redux toolkit and react-redux.
+npm i @reduxjs/toolkit
+Build a Redux store.
+Connect our store to our app.
+Create a cart slice.
+Dispatch an action.
+Read the data using selector
+
+configureStore() gives the store of our React app and hence comes from @reduxjs/toolkit library.
+Next, provide the store to our application. {Provider} comes from a react-redux library since this acts as a bridge between react and redux.
+In order to provide the store to our application we will wrap our whole app with the Provider.
+Create a cart slice.
+Add a slice to a store.
+Subscribe to the store using a Selector.
+
+Pointer to note while using a Redux Store:
+1. While using selector make sure you are using the right portion of the store. So my selected data will update only when the selected portion of the data changes and not any other part of the redux store.
+2. While creating a main redux store we use the keyword as 'reducer' since it is a single reducer, where as while creating slice we use multiple reducers and hence the keyword 'reducers'.
+While exporting from a slice we export only one reducer from it and hence the keyword 'reducer' and in turn it is a combination of multiple small reducers.
+
+Immer library is used by Redux Toolkit behind the scenes to handle immutable states.
+
+Redux Dev Tools
+
+Visit Redux Toolkit website and read about RTK Query.
