@@ -9,13 +9,17 @@ const styleCard = {
 const RestaurantCard = (props) => {
   const { loggedInUser } = useContext(UserContext);
   //   console.log(useContext(UserContext));
-
   //   console.log(props);
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
-    props.resData.info;
+  const { resData } = props;
   //   console.log(resData);
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    resData;
+  //   console.log(props.resData);
   return (
-    <div className="m-4 p-4 w-[175px] rounded-lg bg-gray-100 hover:bg-gray-200">
+    <div
+      data-testid="resCard"
+      className="m-4 p-4 w-[175px] rounded-lg bg-gray-100 hover:bg-gray-200"
+    >
       <img
         className="rounded-lg"
         alt="res-logo"

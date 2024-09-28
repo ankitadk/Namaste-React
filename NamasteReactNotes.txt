@@ -235,6 +235,7 @@ Context can be used for medium sized application. Context is provided by react.
 Redux is used for large apps. It is scalable.
 
 Episode-12 => Let's Build Our Store
+
 React and Redux are different libraries.
 Other Data mgmt libraries similar to Redux: zustand
 Redux offers easy debugging. Redux is a JS library for predictable and maintainable global state management.
@@ -278,3 +279,100 @@ Immer library is used by Redux Toolkit behind the scenes to handle immutable sta
 Redux Dev Tools
 
 Visit Redux Toolkit website and read about RTK Query.
+
+Episode-13 => Time for Test
+
+Types of Developer Testing:
+-Unit Testing: Test your React components in isolation.
+-Integration Testing: Testing the integration of Components. Developing a flow of testing in our App.
+-End to End Testing (EtoE): Testing the App stating from user landing onto the page to user leaving the website. Needs different types of tetsing like Cypress, Selenium, etc.
+
+Testing is a part of development.
+We will be working on Unit testing and Integration testing which developers are mainly responsible for.
+
+Libraries needed for setting up the Testing env.:
+-React Testing Library: React Testing Library builds on top of DOM Testing Library by adding APIs for working with React components.
+React Testing Library uses Jest.
+-Jest - JavaScript Testing: Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
+
+1. Install React Testing Library
+npm install --save-dev @testing-library/react
+2. Install Jest
+npm install -D jest
+3. Install dependencies required to use Babel coz we are using Jest along with babel
+npm install --save-dev babel-jest @babel/core @babel/preset-env
+4. Configure Babel to target your current version of Node by creating a babel.config.js file in the root of your project
+5. We need to reconfigure parcel to disable the default Babel transpilation in Parcel. Coz parcel already uses babel and jest also uses babel. In order to make Parcel use these latest Babel configs we need to do some more changes.
+6. jest configuration
+npx jest --init [execute the package and do not install it]
+Would you like to use Typescript for the configuration file? ... no
+Choose the test environment that will be used for testing: jsdom (browser-like)
+Do you want Jest to add coverage reports? ... yes
+Which provider should be used to instrument code for coverage? » babel
+Automatically clear mock calls, instances, contexts and results before every test? ... yes
+
+Test cases do not run directly on the browser. So testing needs an environment for testing our app. 
+jsdom is like a browser which gives us the features of a browser and all the test cases run here.
+
+7. Install jsdom library [If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.]
+npm install --save-dev jest-environment-jsdom
+
+-- = dunder
+
+8. Install @babel/preset-react library to make JSX work in test cases
+npm i -D @babel/preset-react
+9. SyntaxError: D:\Ankita\IT Stuff\Languages\NamasteReact\src\components\__tests__\contact.test.js: Support for the experimental syntax 'jsx' isn't currently enabled
+Include @babel/preset-react inside my babel config
+["@babel/preset-react", { runtime: "automatic" }]
+Babel is a transpiler. It converts our code from one form to another. Right now, @babel/preset-react is helping our testing library to convert JSX  code into HTML so that it can read properly.
+10.
+TypeError: expect(...).toBeInTheDocument is not a function
+Install @testing-library/jest-dom
+npm i --save-dev @testing-library/jest-dom
+
+<Link> tag comes from react-router-dom library.
+We need to provide Redux store and BrowserRouter to render a component while writing the test cases.
+
+// Querying: finding by role is better way than finding by text
+const loginButton = screen.getByRole("button");
+const loginButton = screen.getByText("Login");
+
+ReferenceError: fetch is not defined
+jest does not understand fetch. fetch is given to us by the browser and not by JavaScript and the component we are testing is rendered onto the JSDOM and not on the Browser. Hence fetch is not working on its own in JSDOM while testing. Hence we need to fake it. we need to write mock fetch function for it.
+
+Warning: An update to Body inside a test was not wrapped in act(...).
+When testing, code that causes React state updates should be wrapped into act(...):
+act(() => {
+/* fire events that update state */
+});
+/* assert on the output */
+This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+===>Whenever we do state update inside React while testing, wrap ur Component inside act function and it will work properly.
+
+Note: act() function comes from "react" library. It returns a promise.
+
+afterAll
+beforeAll
+beforeEach
+afterEach
+
+Every test case should check for only one single thing.
+
+In a test case while rendering a component:
+-If it has a Link then wrap the component with <BrowserRouter>.
+-If Redux store is used then provide the store to that component by wrapping it with the <Provider>.
+-If data is passed then use the mockdata.
+-If an API call is being made then write a fake fetch function as shown below:
+global.fetch = jest.fn(() => {
+  return Promise.resolve({
+    json: () => Promise.resolve(MOCK_DATA_NAME),
+  });
+});
+We cannot make network calls from jsdom which is not an actual browser. It is a browser like environment.
+Replace global.fetch with a mock/dummy function using jest.fn which gives a mock function.
+Also, these test cases will run even without an Internet connection.
+[global.fetch is equal to jest.fn. jest.fn gives us a mock function. Mock function takes a dummy callback function and that function should be exactly similar to the fetch function and fetch returns a promise which needs to be resolved. It resolves with a json. And so promise.resolve returns a json and json is again a function that returns a promise i.e. Promise.resolve and this Promise.resolve actually has a data which is our MOCK_DATA. MOCK_DATA is the data that we get from an api call.]
+
+Note: If you want to check which test cases are not covered yet then visit folder coverage -> Icov-report -> index.html -> Open with live server.
+It will show us the exact places/files which are tested and not tested.
